@@ -1,0 +1,180 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../img/fundo.jpg');
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    background-position: center center;
+    opacity: 0.9;
+    margin: 0;
+    padding: 120px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1{
+    text-transform: uppercase;
+}
+p{
+    font-size: 0.9rem;
+}
+
+select, input, label{
+    font-family: 'Roboto', sans-serif;
+}
+
+/* styles.css */
+
+.container img{
+    width: 90px;
+    border-radius: 50%;
+}
+
+/* Estilos para o modo light */
+body.light-mode {
+    background-color: white;
+    color: black;
+}
+
+.light-mode .container {
+    background-color: #f0f0f0;
+    color: black;
+}
+
+/* Estilos para o modo dark */
+body.dark-mode {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.dark-mode .container {
+    background-color: #2e2e2e;
+    color: white;
+}
+
+/* Estilo para o botão de alternar modo */
+#toggleModeBtn {
+    background: transparent;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+#toggleModeBtn i {
+    font-size: 1.8rem;
+    color:white;
+}
+
+.container {
+    background-color: #fff;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40PX;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 0.9rem;
+
+}
+
+input,
+select,
+button[type=submit] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type=text],
+input[type=email]
+{
+    background: transparent;
+    height: 30px;
+    border-color: #666;
+    color: white;
+}
+
+select{
+    height: 52px;
+    background: transparent;
+    border-color: #666;
+    color: white;
+}
+
+option{
+    background: transparent;
+    color: black;
+}
+
+button[type=submit] {
+    background-color: #28a745;
+    height: 45px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+button[type=submit]:hover {
+    background-color: #218838;
+}
+
+/* Adicionar estilos para o campo de exibição do preço final */
+#finalPriceDisplay {
+    font-size: 1.2em;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #28a745;
+}
+
+
+@media only screen and (max-width: 600px) {
+    body{
+        padding: 150px 10px;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    body{
+        padding: 160px 10px;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    body{
+        padding: 170px 10px;
+    }
+}
