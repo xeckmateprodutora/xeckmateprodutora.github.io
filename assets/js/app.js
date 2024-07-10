@@ -38,7 +38,7 @@ function redirectToWhatsApp(phoneNumber, artistName, sessionType, finalPrice) {
     3: "3 Produções Completas"
   };
 
-  const message = `Olá, sou *${artistName}* e gostaria de solicitar uma sessão de *${sessionDescriptions[sessionType]} por R$ ${finalPrice}*.`;
+  const message = `Olá, sou *${artistName}* e gostaria de solicitar uma sessão de *${sessionDescriptions[sessionType]} por R$ ${finalPrice}.*`;
   const url = `https://wa.me/5561984694839?text=${encodeURIComponent(message)}`;
   window.location.href = url;
 }
