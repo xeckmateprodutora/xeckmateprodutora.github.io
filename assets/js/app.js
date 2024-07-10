@@ -141,5 +141,15 @@ toggleModeBtn.addEventListener('click', function() {
 
 // Atualiza o preço final quando a página carrega
 document.addEventListener('DOMContentLoaded', () => {
-  updateFinalPrice();
+  // Verifica a URL para ver se há um parâmetro de cupom
+  const urlParams = new URLSearchParams(window.location.search);
+  const promoCodeFromUrl = urlParams.get('cupom');
+  if (promoCodeFromUrl) {
+    document.getElementById('promoCode').value = promoCodeFromUrl.toUpperCase();
+    updateFinalPrice();
+
+  } else {
+    updateFinalPrice();
+
+  }
 });
