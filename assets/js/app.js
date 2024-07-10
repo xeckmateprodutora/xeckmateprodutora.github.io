@@ -73,7 +73,7 @@ document.getElementById('sessionForm').addEventListener('submit', async (e) => {
         promoCode,
         price,
         finalPrice,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        createdAt: db.firestore.FieldValue.serverTimestamp()
       })
       .then(() => {
         console.log('Dados salvos com sucesso!');
