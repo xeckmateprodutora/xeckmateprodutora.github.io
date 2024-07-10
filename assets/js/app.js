@@ -12,12 +12,15 @@ async function calculateDiscount(sessionType, promoCode) {
 
   let discount = 0;
   if (promoCode) {
-    // Verifica se o cupom é válido e obtém o percentual de desconto
+// Verifica se o cupom é válido e obtém o percentual de desconto
     const cuponsRef = db.collection('cupons');
     const querySnapshot = await cuponsRef.where('codePromo', '==', promoCode).get();
     if (!querySnapshot.empty) {
       const couponData = querySnapshot.docs[0].data();
       discount = couponData.discount / 100; // Assumindo que 'discount' é um campo no documento do cupom
+      document.getElementById('cupomValido').innerHTML = 'Cupom Válido <i class="bi bi-patch-check-fill"></i>'
+    }else{
+      document.getElementById('cupomValido').innerHTML = 'Cupom Inválido <i class="bi bi-exclamation-octagon-fill"></i>'
     }
   }
 
@@ -35,7 +38,7 @@ function redirectToWhatsApp(phoneNumber, artistName, sessionType, finalPrice) {
     3: "3 Produções Completas"
   };
 
-  const message = `Olá, meu nome é ${artistName} e gostaria de solicitar uma sessão de ${sessionDescriptions[sessionType]} por R$ ${finalPrice}.`;
+  const message = `Olá, sou *${artistName}* e gostaria de solicitar uma sessão de *${sessionDescriptions[sessionType]} por R$ ${finalPrice}*.`;
   const url = `https://wa.me/5561984694839?text=${encodeURIComponent(message)}`;
   window.location.href = url;
 }
@@ -58,16 +61,17 @@ document.getElementById('sessionForm').addEventListener('submit', async (e) => {
   const phoneNumber = document.getElementById('phoneNumber').value;
   const sessionType = document.getElementById('sessionType').value;
   const promoCode = document.getElementById('promoCode').value;
-
+  const price = await calculateDiscount(sessionType);
   const finalPrice = await calculateDiscount(sessionType, promoCode);
 
-      // Salva os dados no Firebase
+//Salva os dados no Firebase
       db.collection('sessions').add({
         artistName,
         email,
         phoneNumber,
         sessionType,
         promoCode,
+        price,
         finalPrice
       })
       .then(() => {
@@ -77,8 +81,6 @@ document.getElementById('sessionForm').addEventListener('submit', async (e) => {
       .catch((error) => {
         console.error('Erro ao salvar os dados: ', error);
       });
-
-
   
 });
 
@@ -119,6 +121,11 @@ toggleModeBtn.addEventListener('click', function() {
     body.classList.add('dark-mode');
     document.getElementById('sessionType').style.color = 'white';
     toggleModeBtn.innerHTML = '<i class="bi bi-toggle-on"></i> Dark';
+    selectMode.style.color = 'white'
+    artistName.style.color = 'white'
+    email.style.color = 'white'
+    phoneNumber.style.color = 'white'
+    promoCode.style.color = 'white'
   } else {
     body.classList.remove('dark-mode');
     body.classList.add('light-mode');    

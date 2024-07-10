@@ -160,6 +160,19 @@ button[type=submit]:hover {
     color: #28a745;
 }
 
+#cupomValido{
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.bi-patch-check-fill{
+    color: #0095F6;
+}
+
+.bi-exclamation-octagon-fill{
+    color: crimson;
+}
+
 
 @media only screen and (max-width: 600px) {
     body{

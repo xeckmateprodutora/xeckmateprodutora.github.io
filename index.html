@@ -17,19 +17,19 @@
     <button id="toggleModeBtn"><i class="bi bi-toggle-on"></i> Dark</button>
     <img src="./assets/img/logo.png" alt="logo da Xeck">
     <h1>Produza Sua Música do Zero</h1>
-    <p>Oferecemos sessões de home studio para produção musical. Escolha sua sessão e obtenha <strong>30% de desconto</strong> com um cupom promocional!</p>
+    <p>Oferecemos sessões de home studio para produção musical. Escolha sua sessão e obtenha até <strong>30% de desconto</strong> com um cupom promocional!</p>
     
     <form id="sessionForm">
-      <label for="artistName">Nome Artístico:</label>
+      <label for="artistName">Nome Artístico: *</label>
       <input type="text" id="artistName" placeholder="Informe seu nome artístico" name="artistName" required>
 
-      <label for="email">E-mail:</label>
+      <label for="email">E-mail: *</label>
       <input type="email" id="email" placeholder="Informe seu e-mail" name="email" required>
 
-      <label for="phoneNumber">Número de Celular (WhatsApp):</label>
+      <label for="phoneNumber">Número de Celular (WhatsApp): *</label>
       <input type="text" id="phoneNumber" placeholder="Informe seu número de celular" name="phoneNumber" required>
 
-      <label for="sessionType">Escolha a Sessão:</label>
+      <label for="sessionType">Escolha a Sessão: *</label>
       <select id="sessionType" name="sessionType" required>
         <option value="1">1 Produção Completa: R$ 349,99</option>
         <option value="2">2 Produções Completas: R$ 599,99</option>
@@ -38,6 +38,7 @@
 
       <label for="promoCode">Cupom Promocional:</label>
       <input type="text" id="promoCode" placeholder="Informe o código do cupom" name="promoCode">
+      <small id="cupomValido"></small>
 
       <p id="finalPriceDisplay"></p>
 
