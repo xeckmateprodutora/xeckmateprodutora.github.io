@@ -38,7 +38,7 @@ function redirectToWhatsApp(phoneNumber, artistName, sessionType, finalPrice) {
     3: "3 Produções Completas"
   };
 
-  const message = `Olá, sou *${artistName}* e gostaria de solicitar uma sessão de *${sessionDescriptions[sessionType]} por R$ ${finalPrice}.*`;
+  const message = `Olá, sou *${artistName}* e gostaria de solicitar uma sessão de *${sessionDescriptions[sessionType]} por R$ ${finalPrice}*.`;
   const url = `https://wa.me/5561984694839?text=${encodeURIComponent(message)}`;
   window.location.href = url;
 }
@@ -76,8 +76,8 @@ document.getElementById('sessionForm').addEventListener('submit', async (e) => {
         createdAt: firebase.firestore.Timestamp.now()
       })
       .then(() => {
-        console.log('Dados salvos com sucesso!');
-        redirectToWhatsApp(phoneNumber, artistName, sessionType, finalPrice);
+        showNotification('success', 'Solicitação enviada com sucesso!');
+        // redirectToWhatsApp(phoneNumber, artistName, sessionType, finalPrice);
       })
       .catch((error) => {
         console.error('Erro ao salvar os dados: ', error);
@@ -147,9 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (promoCodeFromUrl) {
     document.getElementById('promoCode').value = promoCodeFromUrl.toUpperCase();
     updateFinalPrice();
-
   } else {
     updateFinalPrice();
-
   }
 });
