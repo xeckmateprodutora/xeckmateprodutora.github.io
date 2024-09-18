@@ -76,6 +76,7 @@ document.getElementById('sessionForm').addEventListener('submit', async (e) => {
         createdAt: firebase.firestore.Timestamp.now()
       })
       .then(() => {
+        document.getElementById('sessionForm').reset();
         showNotification('success', 'Solicitação enviada com sucesso!');
         // redirectToWhatsApp(phoneNumber, artistName, sessionType, finalPrice);
       })
